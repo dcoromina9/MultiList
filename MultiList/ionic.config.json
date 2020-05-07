@@ -1,0 +1,7 @@
+{
+  "name": "MultiList",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
