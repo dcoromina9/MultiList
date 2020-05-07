@@ -9,16 +9,15 @@ import { User } from "../shared/user.class";
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  user: User = new User();
-  constructor(private authSvc:AuthService, private router:Router) { }
+  // user: User = new User();
+  // constructor(private authSvc:AuthService, private router:Router) { }
 
   ngOnInit() {
   }
-   async onRegister(){
-    const user = await this.authSvc.onRegister(this.user)
-    if (user){
-      console.log('Sign Up completed');
-      this.router.navigateByUrl("/")
-    }
+  //  async onRegister(){
+  //   const user = await this.authSvc.onRegister(this.user)
+  //   if (user){
+  //     console.log('Sign Up completed');
+  //     this.router.navigateByUrl("/")
+  //   }
   } 
-}
