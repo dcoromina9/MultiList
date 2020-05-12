@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{content?.Title}}</ion-title>
+    <ion-title>MultiList</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,9 +14,21 @@
       <ion-card-subtitle>
         {{content.Year}} {{content.Language}}
       </ion-card-subtitle>
+
+      <ion-item>
+        <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)" placeholder="Status" slot="end">
+          <ion-select-option value="Watched">Watched</ion-select-option>
+          <ion-select-option value="Watching">Watching</ion-select-option>
+          <ion-select-option value="Planning">Planning</ion-select-option>
+        </ion-select>
+
+      </ion-item>
+
+
     </ion-card-header>
+    
     <ion-card-content>
-      <img src="{{content.Poster}}" class="info-img"> {{content.Plot}}
+      <img src="{{content.Poster}}" class="info-img"> 
       <ion-item lines="none">
         <ion-icon name="star-half" slot="start"></ion-icon>
         <ion-label> {{content?.imdbRating}}
