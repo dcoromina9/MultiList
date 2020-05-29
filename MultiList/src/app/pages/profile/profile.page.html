@@ -2,7 +2,7 @@
     <ion-header translucent="true">
         
         <ion-toolbar color="primary">
-            <ion-title href="homepage" size="large"> MultiList </ion-title>
+            <ion-title size="large"> Profile </ion-title>
     
             <!-- Left Side Menu -->
             <ion-buttons slot="start">
@@ -12,14 +12,19 @@
             <!-- Right side Login And Search Options -->
     
             <ion-buttons slot="secondary">
+                <ion-searchbar autocomplete="on" animated="true" [(ngModel)]="term" (ionChange)="searchChanged($event)"></ion-searchbar>
                 <ion-button href="/login">
                     <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
                 </ion-button>
             </ion-buttons>
+    
         </ion-toolbar>
     </ion-header>
-
-    <p>hola</p>
-    
-    
+    <ion-content>
+    <ion-img></ion-img>
+</ion-content>
+    <ion-content>
+    <ion-title>David Coromina Solà</ion-title>
+    <ion-title>dcoromina8@boscdelacoma.cat</ion-title>
+    </ion-content>
     </ion-app>

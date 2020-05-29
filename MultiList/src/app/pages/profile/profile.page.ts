@@ -3,11 +3,6 @@ import { Observable } from 'rxjs';
 import { MovieService } from '../../services/movie.service';
 import { iMovies } from '../../model/iMovies.interface'; 
 import { MenuController } from '@ionic/angular';
-import * as firebase from 'firebase';
-import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
-import { Profile } from '../../model/profile'; 
-import { ActivatedRoute } from '@angular/router'
-import { UserService } from '../../services/user.service';
 import { User } from 'src/app/shared/user';
 
 
@@ -17,16 +12,14 @@ import { User } from 'src/app/shared/user';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  users:Observable<any[]>;
   user:User;
   results: Observable<iMovies>;
   term: string= '';
   type: string= '';
-  userData: AngularFireObject<Profile>
 
 
-  constructor(private movieService:MovieService, private menu: MenuController, private route: ActivatedRoute, private userService : UserService
-    ) { 
+
+  constructor(private movieService:MovieService, private menu: MenuController) { 
 
   }
 

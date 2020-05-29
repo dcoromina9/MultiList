@@ -18,22 +18,9 @@ export class HomepagePage implements OnInit {
 
   ngOnInit() {
   }
-
   searchChanged(): void {
     this.results= this.movieService.searchMovies(this.term, this.type);
   }
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
 
-  openEnd() {
-    this.menu.open('end');
-  }
-
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
-  }
 
 }
