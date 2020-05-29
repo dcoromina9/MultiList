@@ -11,6 +11,7 @@ export class MovieService {
   private url: string='';
   private apiKey: string = '6c277a80';
 
+
   constructor(private http: HttpClient) { }
 
   searchMovies(title:string, type:string){
@@ -20,5 +21,10 @@ export class MovieService {
 
   getDetails(id:string){
     return this.http.get<iMovies>(`https://www.omdbapi.com/?i=${id}&plot=full&apikey=${this.apiKey}`);
+  }
+
+  getMovies(typeMovie:string){
+    this.url = `https://www.omdbapi.com/?s=${encodeURI(typeMovie)}&apikey=${this.apiKey}`;
+    return this.http.get<iMovies>(this.url).pipe(map(films => films['Search']))
   }
 }

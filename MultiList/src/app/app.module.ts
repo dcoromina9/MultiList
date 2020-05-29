@@ -11,9 +11,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { HomePageModule } from './home-page/home-page.module';
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule, AngularFireAuth } from "@angular/fire/auth";
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './service/auth.service';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { UserService } from './shared/user';
+
+
+
 
 
 
@@ -21,14 +29,22 @@ import { AngularFireAuthModule, AngularFireAuth } from "@angular/fire/auth";
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, IonicModule.forRoot(), AppRoutingModule,AngularFireModule.initializeApp(environment.firebaseConfig), AngularFireAuthModule, HttpClientModule, 
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }), HomePageModule
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule,AngularFireModule.initializeApp(environment.firebaseConfig), 
+    AngularFireAuthModule, HttpClientModule, FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }), 
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
   providers: [
     AngularFireAuth,
+    AngularFirestoreModule,
     StatusBar,
+    AuthService,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

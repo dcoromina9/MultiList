@@ -1,49 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<ion-app>
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>MultiList</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>MultiList</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngIf="content">
-    <ion-card-header text-center>
-      <ion-card-title>{{content?.Title}}</ion-card-title>
-      <ion-card-subtitle>
-        {{content.Year}} {{content.Language}}
-      </ion-card-subtitle>
+    <ion-card *ngIf="content">
+        <ion-card-header text-center>
+            <ion-card-title>{{content?.Title}}</ion-card-title>
+            <ion-card-subtitle>
+                {{content.Year}} {{content.Language}}
+            </ion-card-subtitle>
 
-      <ion-item>
-        <ion-select [(ngModel)]="type" (ionChange)="searchChanged($event)" placeholder="Status" slot="end">
+        <ion-item>
+        <ion-select interface="popover" placeholder="Status" slot="end">
           <ion-select-option value="Watched">Watched</ion-select-option>
           <ion-select-option value="Watching">Watching</ion-select-option>
           <ion-select-option value="Planning">Planning</ion-select-option>
         </ion-select>
-
+        
       </ion-item>
 
+        </ion-card-header>
 
-    </ion-card-header>
-    
-    <ion-card-content>
-      <img src="{{content.Poster}}" class="info-img"> 
-      <ion-item lines="none">
-        <ion-icon name="star-half" slot="start"></ion-icon>
-        <ion-label> {{content?.imdbRating}}
-        </ion-label>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-icon name="clipboard" slot="start"></ion-icon>
-        <ion-label text-wrap> {{content?.Director}}
-        </ion-label>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-icon name="people" slot="start"></ion-icon>
-        <ion-label text-wrap> {{content?.Actors}}
-        </ion-label>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+        <ion-card-content>
+            <img src="{{content.Poster}}" class="info-img">
+            <ion-item lines="none">
+                <ion-icon name="star-half" slot="start"></ion-icon>
+                <ion-label> {{content?.imdbRating}}
+                </ion-label>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-icon name="clipboard" slot="start"></ion-icon>
+                <ion-label text-wrap> {{content?.Director}}
+                </ion-label>
+            </ion-item>
+            <ion-item lines="none">
+                <ion-icon name="people" slot="start"></ion-icon>
+                <ion-label text-wrap> {{content?.Actors}}
+                </ion-label>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
+</ion-app>

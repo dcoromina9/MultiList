@@ -1,10 +1,56 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Sign Up</ion-title>    
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Sign Up</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding="true">
+<ion-content>
+    <form>
+      <ion-item lines="full">
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text"></ion-input>
+    </ion-item>
+        <ion-item lines="full">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" #email required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" #password required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Repeat Password</ion-label>
+          <ion-input type="password" #password required></ion-input>
+      </ion-item>
+
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" (click)="signUp(email, password)" expand="block">Register</ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-content padding="true">
   <form>
   <ion-item>
     <ion-label>
@@ -25,9 +71,14 @@
     <ion-button size="small" (click)="onRegister()">Sign Up</ion-button>
     <ion-button size="small" href="/login">Log in</ion-button>
   </ion-item-divider>
-</ion-content>
+</ion-content> -->
 
-<ion-content padding>
+
+
+
+
+
+<!-- <ion-content padding>
   <form #form="ngForm" (ngSubmit)="register(form)" method="post">
     <ion-item>
         <ion-label position="floating">First Name</ion-label>
@@ -49,8 +100,8 @@
       <ion-input type="password" ngModel name="password"></ion-input>
     </ion-item>
   
-    <ion-button type="submit" expand="full" color="danger">Register</ion-button>
+    <ion-button type="submit" expand="full" color="danger">Sign Up</ion-button>
   </form>
   <p text-center>Already have a account?</p>
-  <ion-button expand="full" color="primary" (click)="loginModal()">Login</ion-button>
-</ion-content>  
+  <ion-button href="/login" expand="full" color="primary" (click)="loginModal()">Login</ion-button>
+</ion-content>   -->

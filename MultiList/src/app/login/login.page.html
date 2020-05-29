@@ -1,23 +1,70 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Login</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content padding="true">
-  <form>
-  <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input type="text" ngModel name="user.email"></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label position="floating">Password</ion-label>
-    <ion-input  ngModel name="user.password"></ion-input>
-  </ion-item>
-</form>
+<!-- <ion-content padding="true">
+    <form>
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" ngModel name="user.email"></ion-input>
+        </ion-item>
 
-  <ion-item-divider>
-    <ion-button size="small" class="ion-text-center" (click)="onLogin()">Log in</ion-button>
-  </ion-item-divider>
-</ion-content>
+        <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input ngModel name="user.password"></ion-input>
+        </ion-item>
+    </form>
+
+    <ion-item-divider>
+        <ion-button size="default" class="ion-text-center" (click)="onLogin()">Log in</ion-button>
+    </ion-item-divider>
+
+    <div class="ion-text-center">
+        <p text-center>You don't have an account?</p>
+        <ion-button href="/register" expand="block" color="primary" (click)="loginModal()">Sign Up</ion-button>
+    </div>
+</ion-content> -->
+  
+  <ion-content>
+    <form>    
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" #email required></ion-input>
+      </ion-item> 
+  
+      <ion-item lines="full">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" #password required></ion-input>
+      </ion-item>
+  
+      <ion-row>
+        <ion-col> 
+        <ion-button type="submit" (click)="logIn(email, password)" expand="block">Login</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+    
+    <form>
+        <ion-row>
+          <ion-col> 
+            <ion-button 
+             type="submit" 
+             color="danger"
+             (click)="authService.GoogleAuth()" 
+             expand="block">
+               Login with Google
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+      
+    <div class="ion-text-center">
+        <p text-center>You don't have an account?</p>
+        <ion-button href="/register" expand="block" color="primary">Sign Up</ion-button>
+    </div>
+  </ion-content>

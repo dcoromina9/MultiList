@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AuthService } from "../services/auth.service";
-import { User } from "../shared/user.class";
+import { AuthenticationService } from "../shared/authentication-service";
+
 
 @Component({
   selector: 'app-register',
@@ -9,15 +10,22 @@ import { User } from "../shared/user.class";
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  // user: User = new User();
-  // constructor(private authSvc:AuthService, private router:Router) { }
+  constructor(
+    public authService: AuthenticationService,
+    public router: Router
+  ) { }
 
-  ngOnInit() {
-  }
-  //  async onRegister(){
-  //   const user = await this.authSvc.onRegister(this.user)
-  //   if (user){
-  //     console.log('Sign Up completed');
-  //     this.router.navigateByUrl("/")
-  //   }
-  } 
+  ngOnInit(){}
+
+  signUp(email, password){
+    this.authService.RegisterUser(email.value, password.value)
+    .then((res) => {
+      // Do something here
+      this.authService.SendVerificationMail()
+      this.router.navigate(['verify-email']);
+    }).catch((error) => {
+      window.alert(error.message)
+    })
+}
+
+}
